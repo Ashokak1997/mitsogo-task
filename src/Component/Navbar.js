@@ -1,9 +1,29 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 const Navbar = () => {
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 50) { 
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark px-4 py-3">
+    <nav
+      className={`navbar navbar-expand-lg fixed-top px-4 py-3 ${
+        isScrolled ? 'navbar-scrolled' : 'navbar-dark'
+      }`}
+    >
       <a className="navbar-brand" href="#">
         <strong>hexnode</strong>
       </a>

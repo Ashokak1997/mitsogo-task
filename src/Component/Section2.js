@@ -4,7 +4,7 @@ import main from "../images/main.png.svg";
 const Section2 = () => {
   return (
     <div className="why-hexnode-container">
-      <h2 className="why-hexnode-title">Why Hexnode?</h2>
+      <h2 className="why-hexnode-title mt-4">Why Hexnode?</h2>
       <div className="container">
         <div className="why-hexnode-grid row">
           <div class="col-12 col-sm-5">
